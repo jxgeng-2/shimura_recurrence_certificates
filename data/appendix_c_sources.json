@@ -1,0 +1,45 @@
+{
+  "draft": "inputs/draft.pdf, Appendix C, Table 7, pages 22-23",
+  "reviewed": "2026-11-16",
+  "sources": [
+    {
+      "id": "Elkies",
+      "title": "Shimura Curve Computations",
+      "url": "https://arxiv.org/pdf/math/0005160",
+      "locations": ["section 5.1 and equation (68)", "equation (76) and Table 6"],
+      "inputs": ["N=14 model v^2=-16s^4+13s^2-8 and T=-s^2", "N=14: T(CM(-11))=-1; T(CM(-4))=infinity", "N=15 model v^2=-(3s^2+1)(s^2+27) and T=-3s^2", "N=15: T(CM(-7))=-27; T(CM(-3))=infinity"]
+    },
+    {
+      "id": "LinYang",
+      "title": "Quaternionic loci in Siegel's modular threefold",
+      "url": "https://arxiv.org/pdf/1807.00466",
+      "version_note": "Expanded 113-page version, not abbreviated journal table numbering",
+      "locations": ["equation (15)", "Example 29", "Table 4, pages 44-46", "Table 6, page 108", "Remark 55, page 109", "Table 7, page 111"],
+      "inputs": ["Weighted moduli coordinates (s2,s3,s5,s6) of weights (2,3,5,6)", "Full Table 4 polynomials for the N=21,33,46 components, transcribed in parametrizations()", "S6(J)=[J:J^2:J^3:J^3(J+1)]", "Marked j coordinates and Atkin-Lehner actions in Table 6", "Branch polynomials from Table 7"]
+    },
+    {
+      "id": "GuoYang",
+      "title": "Equations of hyperelliptic Shimura curves",
+      "url": "https://arxiv.org/pdf/1510.06193",
+      "version_note": "Expanded 70-page version",
+      "locations": ["Example 32", "Example 33", "Table 11, page 47", "Table 16, page 49"],
+      "inputs": ["N=26: s=x^2 is 1,0,infinity at D=-11,-52,-8", "N=38: s=x^2 is 1,0,infinity at D=-11,-19,-4", "N=58: s=-x^2/19 is 11/19,0,infinity,27/19 at D=-11,-232,-8,-3", "Example 32 gives an independent Borcherds verification of Elkies's Table 6"]
+    },
+    {
+      "id": "Errthum",
+      "title": "Singular Moduli of Shimura Curves",
+      "url": "https://arxiv.org/pdf/0711.4316",
+      "locations": ["normalization (30)", "Table 3, pages 30-31"],
+      "inputs": ["Two factored norms |t6| and |1-t6| for D=-43,-67,-163, separately transcribed in intersections()"],
+      "sign_note": "Use Table 3's two norms to determine the sign. Do not use the apparently inconsistent positive signs in this version's Table 2 for these three values."
+    },
+    {
+      "id": "GonzalezRotger",
+      "title": "Non-elliptic Shimura curves of genus one",
+      "url": "https://arxiv.org/pdf/math/0612732",
+      "locations": ["Proposition 5.6, page 15"],
+      "inputs": ["W(R) times Gal(H_R/K) is transitive on CM(R). For h(R)=1 this implies a single full Atkin-Lehner orbit."]
+    }
+  ],
+  "scope": "Published geometric and arithmetic identifications are theorem inputs. The certificate independently executes exact substitutions, weighted scaling, sign recovery, class-number enumeration and quotient invariance."
+}

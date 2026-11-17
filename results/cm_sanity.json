@@ -1,0 +1,181 @@
+{
+  "passed": true,
+  "forms": [
+    {
+      "E": "14a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "15a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "21a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "33a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "34a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "46a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "passed": true
+    },
+    {
+      "E": "26a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -8,
+      "reduced_radius": 0.7393306504010482,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    },
+    {
+      "E": "26b1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -8,
+      "reduced_radius": 0.7393306504010482,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    },
+    {
+      "E": "38a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -4,
+      "reduced_radius": 0.8981672936409336,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    },
+    {
+      "E": "38b1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -4,
+      "reduced_radius": 0.8981672936409336,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    },
+    {
+      "E": "58a1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -3,
+      "reduced_radius": 0.8290503472988209,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    },
+    {
+      "E": "58b1",
+      "terms": 20,
+      "prec_bits": 128,
+      "CM_discriminant": -3,
+      "reduced_radius": 0.8290503472988209,
+      "full_batch_run": false,
+      "images_or_recognition_run": false
+    }
+  ],
+  "CM_inputs": [
+    {
+      "N": 14,
+      "discriminants": 21,
+      "class_representatives": 56,
+      "oriented_CM_points": 140,
+      "divisors_per_factor": 420,
+      "raw_orientation_operator_groups_per_factor": 171,
+      "passed": true
+    },
+    {
+      "N": 15,
+      "discriminants": 22,
+      "class_representatives": 65,
+      "oriented_CM_points": 164,
+      "divisors_per_factor": 492,
+      "raw_orientation_operator_groups_per_factor": 183,
+      "passed": true
+    },
+    {
+      "N": 21,
+      "discriminants": 20,
+      "class_representatives": 62,
+      "oriented_CM_points": 174,
+      "divisors_per_factor": 522,
+      "raw_orientation_operator_groups_per_factor": 174,
+      "passed": true
+    },
+    {
+      "N": 26,
+      "discriminants": 22,
+      "class_representatives": 61,
+      "oriented_CM_points": 146,
+      "divisors_per_factor": 438,
+      "raw_orientation_operator_groups_per_factor": 180,
+      "passed": true
+    },
+    {
+      "N": 33,
+      "discriminants": 19,
+      "class_representatives": 67,
+      "oriented_CM_points": 190,
+      "divisors_per_factor": 570,
+      "raw_orientation_operator_groups_per_factor": 171,
+      "passed": true
+    },
+    {
+      "N": 34,
+      "discriminants": 20,
+      "class_representatives": 60,
+      "oriented_CM_points": 144,
+      "divisors_per_factor": 432,
+      "raw_orientation_operator_groups_per_factor": 156,
+      "passed": true
+    },
+    {
+      "N": 38,
+      "discriminants": 20,
+      "class_representatives": 56,
+      "oriented_CM_points": 158,
+      "divisors_per_factor": 474,
+      "raw_orientation_operator_groups_per_factor": 183,
+      "passed": true
+    },
+    {
+      "N": 46,
+      "discriminants": 18,
+      "class_representatives": 56,
+      "oriented_CM_points": 156,
+      "divisors_per_factor": 468,
+      "raw_orientation_operator_groups_per_factor": 159,
+      "passed": true
+    },
+    {
+      "N": 58,
+      "discriminants": 18,
+      "class_representatives": 59,
+      "oriented_CM_points": 148,
+      "divisors_per_factor": 444,
+      "raw_orientation_operator_groups_per_factor": 153,
+      "passed": true
+    }
+  ],
+  "full_computation_run": false,
+  "seconds": "3.298",
+  "scope": "Exact supplied CM input checks and 20-term setups only; no numerical CM image table reproduced."
+}

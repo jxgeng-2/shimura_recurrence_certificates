@@ -1,0 +1,14 @@
+14a: d=1; R(u) = C - 3*u/8
+15a: d=1; R(u) = C - 4*u/3
+21a: d=2; R(u) = B/(u - 49) + C - 921984/(u - 49)**2
+33a: d=2; R(u) = B/(u - 1) + C - 384/(u - 1)**2 - 108/u
+34a: d=2; R(u) = B/(u - 16/15) + C - 1336336/(16875*(u - 16/15)**2)
+46a: d=2; R(u) = B/(u - 64) + C - 3*u/8 - 196608/(u - 64)**2
+26a: d=2; R(u) = B/u + C - 507/(2*u**2)
+26b: d=2; R(u) = B/u + C - 3/u**2
+38a: d=2; R(u) = B/u + C - 6*u - 57/(2*u**2)
+38b: d=2; R(u) = B/u + C - 30/u**2
+58a: d=3; R(u) = B0/u + B1/(u + 27) + C + 65536/(9*(u + 27)**2) - 2523/u**2
+58b: d=3; R(u) = B0/u + B1/(u + 1/27) + C - 65536/(177147*(u + 1/27)**2) - 3/u**2
+PASS: all 12 H functions, principal parts, accessory bases and Table 3 families.
+Certificate written to /mnt/c/Users/Jingx/OneDrive/Documents/shimura_recurrence_certificates/data/families_certificate.json

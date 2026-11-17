@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shimura recurrence certificate</title><style>body{font:16px/1.6 system-ui,sans-serif;color:#172c36;max-width:1100px;margin:50px auto;padding:0 24px;background:#f7f9fa}h1{font-size:36px;line-height:1.15}h2{margin-top:42px}a{color:#185b86}table{border-collapse:collapse;width:100%;background:white;margin:20px 0}th,td{text-align:left;padding:10px 14px;border-bottom:1px solid #d8e1e5;overflow-wrap:anywhere}th{background:#e8eff2}code{font-size:.88em;overflow-wrap:anywhere}details{background:white;border:1px solid #d8e1e5;margin:12px 0;padding:12px 18px}summary{font-weight:650;cursor:pointer}.tag{color:#246746;font-weight:650}.note{border-left:4px solid #247c86;padding:10px 18px;background:#edf4f4}.numeric{font-variant-numeric:tabular-nums}footer{margin-top:48px;font-size:14px;color:#506674}@media print{body{background:white;max-width:none;margin:0}details{break-inside:avoid}}</style>
+<body><p class="tag">COMPLETED · ALL REQUESTED CHECKS PASS</p><h1>Code certificate for<br>Shimura-curve recurrence formulas</h1>
+<p>Twelve eigenforms · nine curves · Tables 1–7 · Sections 2–5 and Appendices A–C.</p>
+<p><a href="README.md">Run instructions</a> · <a href="docs/coverage.md">Claim-by-claim coverage</a> · <a href="inputs/draft.pdf">Reference draft</a> · <a href="results/summary.json">Machine-readable summary</a></p>
+<div class="note">The exact checks certify algebraic identities and consequences of the stated geometric and coefficient inputs. Nelson comparisons establish observed numerical agreement. The twelve-under-200 source was checked only with its small sanity routine; the full image computation was not run.</div>
+<h2>Numerical agreement achieved</h2><p>90 decimal digits; weight target 80 digits; lattice cutoffs 144 and 196. Across the 43 assumed coefficients, the final cutoff gives:</p><table><tr><th>Quantity</th><th>Largest observed discrepancy</th><th>Uniform observed threshold</th></tr>
+<tr><td>cₙ</td><td>1.20726833E-57</td><td>&lt; 10<sup>-56</sup></td></tr>
+<tr><td>Θ</td><td>4.09806539E-68</td><td>&lt; 10<sup>-67</sup></td></tr>
+<tr><td>Θ/(πΩ²)</td><td>6.16957960E-66</td><td>&lt; 10<sup>-65</sup></td></tr>
+</table><p>These thresholds describe the finite computations; they are not interval-certified bounds for the infinite Nelson sum. See <a href="docs/numerical_scope.md">numerical scope</a>.</p>
+<table><tr><th>Form</th><th>max |Δc|, cutoff 144</th><th>max |Δc|, cutoff 196</th><th>|ΔΘ/(πΩ²)|, cutoff 196</th></tr>
+<tr><td>14a</td><td>3.661E-54</td><td>8.986E-65</td><td>1.372E-68</td></tr>
+<tr><td>15a</td><td>1.974E-55</td><td>5.005E-66</td><td>3.321E-69</td></tr>
+<tr><td>21a</td><td>2.340E-57</td><td>4.126E-68</td><td>2.540E-67</td></tr>
+<tr><td>26a</td><td>4.081E-54</td><td>4.627E-64</td><td>7.406E-68</td></tr>
+<tr><td>26b</td><td>1.433E-47</td><td>1.207E-57</td><td>3.527E-69</td></tr>
+<tr><td>33a</td><td>1.051E-48</td><td>9.095E-59</td><td>3.736E-67</td></tr>
+<tr><td>34a</td><td>5.215E-51</td><td>4.299E-61</td><td>1.467E-68</td></tr>
+<tr><td>38a</td><td>3.053E-52</td><td>1.663E-62</td><td>2.597E-68</td></tr>
+<tr><td>38b</td><td>7.962E-53</td><td>5.038E-63</td><td>3.707E-68</td></tr>
+<tr><td>46a</td><td>3.556E-54</td><td>4.290E-64</td><td>6.170E-66</td></tr>
+<tr><td>58a</td><td>3.605E-49</td><td>1.125E-59</td><td>1.153E-68</td></tr>
+<tr><td>58b</td><td>6.454E-50</td><td>7.781E-61</td><td>6.741E-69</td></tr>
+</table><h2>Executed certificates</h2><table><tr><th>Certificate</th><th>Evidence</th></tr>
+<tr><td>General identities</td><td><a href="results/general_identities.json">Passing report</a></td></tr>
+<tr><td>Table 3 families</td><td><a href="data/families_certificate.json">Passing report</a></td></tr>
+<tr><td>Section 4 notebooks</td><td><a href="results/notebooks.json">Passing report</a></td></tr>
+<tr><td>All twelve expansions</td><td><a href="results/coefficients.json">Passing report</a></td></tr>
+<tr><td>Appendix C</td><td><a href="results/appendix_c.json">Passing report</a></td></tr>
+<tr><td>Nelson exact inputs</td><td><a href="results/nelson_inputs.json">Passing report</a></td></tr>
+<tr><td>Nelson numerical agreement</td><td><a href="results/numerical.json">Passing report</a></td></tr>
+<tr><td>Section 5 selected polynomials</td><td><a href="results/cm_claims.json">Passing report</a></td></tr>
+<tr><td>CM source sanity</td><td><a href="results/cm_sanity.json">Passing report</a></td></tr>
+<tr><td>Cross-certificate consistency</td><td><a href="results/integration.json">Passing report</a></td></tr>
+</table><p><a href="results/shimura_parameter_recovery.ipynb">Executed parameter-recovery notebook</a> · <a href="results/shimura_schwarzian_14_15_21.ipynb">Executed Schwarzian notebook</a></p>
+<h2>First 20 coefficients of every form</h2><p>For w=(z−τ)/(z−conjugate(τ)), the appendix normalization is f(z)=(1−w)² Σ cₙ(Θw)ⁿ/n!. Each list gives c₀,…,c₁₉. The API also returns ordinary q coefficients and coefficients after multiplying by (1−w)².</p>
+<details><summary>14a — c₀ through c₁₉</summary><p>τ = <code>(-sqrt(14)+sqrt(-22))/6</code><br>Θ/(πΩ²) = <code>1+sqrt(-77)/7</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-4</code></td></tr>
+<tr><td>3</td><td><code>214/9</code></td></tr>
+<tr><td>4</td><td><code>24</code></td></tr>
+<tr><td>5</td><td><code>47104/81</code></td></tr>
+<tr><td>6</td><td><code>-163376/81</code></td></tr>
+<tr><td>7</td><td><code>-25763024/729</code></td></tr>
+<tr><td>8</td><td><code>-359785216/729</code></td></tr>
+<tr><td>9</td><td><code>-11587769984/6561</code></td></tr>
+<tr><td>10</td><td><code>55550801152/2187</code></td></tr>
+<tr><td>11</td><td><code>-5280560316416/59049</code></td></tr>
+<tr><td>12</td><td><code>-368115980739584/59049</code></td></tr>
+<tr><td>13</td><td><code>49687173291019264/531441</code></td></tr>
+<tr><td>14</td><td><code>-248659593004404736/531441</code></td></tr>
+<tr><td>15</td><td><code>-336598664382284294144/4782969</code></td></tr>
+<tr><td>16</td><td><code>226213608266292297728/1594323</code></td></tr>
+<tr><td>17</td><td><code>-83335836960457641426944/43046721</code></td></tr>
+<tr><td>18</td><td><code>-9364169257051756027510784/43046721</code></td></tr>
+<tr><td>19</td><td><code>-441115888869696280127799296/387420489</code></td></tr>
+</table></details>
+<details><summary>15a — c₀ through c₁₉</summary><p>τ = <code>(sqrt(-210)-sqrt(-14))/14</code><br>Θ/(πΩ²) = <code>-8*sqrt(15)/15</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-1/4</code></td></tr>
+<tr><td>3</td><td><code>27/16</code></td></tr>
+<tr><td>4</td><td><code>-381/64</code></td></tr>
+<tr><td>5</td><td><code>-10725/256</code></td></tr>
+<tr><td>6</td><td><code>166635/1024</code></td></tr>
+<tr><td>7</td><td><code>-1040445/4096</code></td></tr>
+<tr><td>8</td><td><code>16448355/16384</code></td></tr>
+<tr><td>9</td><td><code>-63569205/65536</code></td></tr>
+<tr><td>10</td><td><code>7274000475/262144</code></td></tr>
+<tr><td>11</td><td><code>-753426694125/1048576</code></td></tr>
+<tr><td>12</td><td><code>3490543811475/4194304</code></td></tr>
+<tr><td>13</td><td><code>-834403776221925/16777216</code></td></tr>
+<tr><td>14</td><td><code>-19221788273793525/67108864</code></td></tr>
+<tr><td>15</td><td><code>-717789378292804125/268435456</code></td></tr>
+<tr><td>16</td><td><code>31723568220115303875/1073741824</code></td></tr>
+<tr><td>17</td><td><code>-140087143112528863125/4294967296</code></td></tr>
+<tr><td>18</td><td><code>-182964894818522014477125/17179869184</code></td></tr>
+<tr><td>19</td><td><code>-1887835402113443747362125/68719476736</code></td></tr>
+</table></details>
+<details><summary>21a — c₀ through c₁₉</summary><p>τ = <code>(-21-5*sqrt(21)+5*sqrt(-43)+sqrt(-903))/16</code><br>Θ/(πΩ²) = <code>-63/4-3*sqrt(-903)/4</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-905/3969</code></td></tr>
+<tr><td>3</td><td><code>-1318/27783</code></td></tr>
+<tr><td>4</td><td><code>-4357004/5250987</code></td></tr>
+<tr><td>5</td><td><code>2121080/583443</code></td></tr>
+<tr><td>6</td><td><code>-38714882308/6947055801</code></td></tr>
+<tr><td>7</td><td><code>4782446912/425329947</code></td></tr>
+<tr><td>8</td><td><code>346256788547680/3938980639167</code></td></tr>
+<tr><td>9</td><td><code>-3320127455840/437664515463</code></td></tr>
+<tr><td>10</td><td><code>193274504686264160/1737090461872647</code></td></tr>
+<tr><td>11</td><td><code>-7759719497388864640/12159633233108529</code></td></tr>
+<tr><td>12</td><td><code>-20101786476667389280448/2298170681057511981</code></td></tr>
+<tr><td>13</td><td><code>2262149965884242737216/328310097293930283</code></td></tr>
+<tr><td>14</td><td><code>28421381962967115741726400/1303062776159609293227</code></td></tr>
+<tr><td>15</td><td><code>124355294277752051572902400/186151825165658470461</code></td></tr>
+<tr><td>16</td><td><code>6012597624168961840025530941440/1723952052859163094939321</code></td></tr>
+<tr><td>17</td><td><code>515021061149243584510723932160/21283358677273618456041</code></td></tr>
+<tr><td>18</td><td><code>193098873298338795222806402355625984/760262855310890924868240561</code></td></tr>
+<tr><td>19</td><td><code>-18257035541123100158257753293330698240/15965519961528709422233051781</code></td></tr>
+</table></details>
+<details><summary>33a — c₀ through c₁₉</summary><p>τ = <code>(-sqrt(33)+sqrt(-67))/10</code><br>Θ/(πΩ²) = <code>-23/5-23*sqrt(-2211)/165</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-72337/529</code></td></tr>
+<tr><td>3</td><td><code>9202302/12167</code></td></tr>
+<tr><td>4</td><td><code>3009372468/279841</code></td></tr>
+<tr><td>5</td><td><code>-1149714703920/6436343</code></td></tr>
+<tr><td>6</td><td><code>176790432531276/148035889</code></td></tr>
+<tr><td>7</td><td><code>-65218741020268416/3404825447</code></td></tr>
+<tr><td>8</td><td><code>213283710622565283168/78310985281</code></td></tr>
+<tr><td>9</td><td><code>101924880128393159783520/1801152661463</code></td></tr>
+<tr><td>10</td><td><code>6431402004883069659222240/41426511213649</code></td></tr>
+<tr><td>11</td><td><code>-14372062586485121665601245440/952809757913927</code></td></tr>
+<tr><td>12</td><td><code>-26966099958243037576732370791872/21914624432020321</code></td></tr>
+<tr><td>13</td><td><code>-17667668904139442710971183917198016/504036361936467383</code></td></tr>
+<tr><td>14</td><td><code>-47858097014408411562211052180840640/21914624432020321</code></td></tr>
+<tr><td>15</td><td><code>43612771350824663802569918660164285094400/266635235464391245607</code></td></tr>
+<tr><td>16</td><td><code>4404992161664413708493324871370362636533760/6132610415680998648961</code></td></tr>
+<tr><td>17</td><td><code>-6377837513023113094353022527227310703585198080/141050039560662968926103</code></td></tr>
+<tr><td>18</td><td><code>58573216267977591428492771023085683510019290841088/3244150909895248285300369</code></td></tr>
+<tr><td>19</td><td><code>80466978643365468441335057017536531311918400775311360/74615470927590710561908487</code></td></tr>
+</table></details>
+<details><summary>34a — c₀ through c₁₉</summary><p>τ = <code>(-34*sqrt(3)+7*sqrt(102)+7*sqrt(-33)-sqrt(-1122))/45</code><br>Θ/(πΩ²) = <code>1-11*sqrt(34)/102-sqrt(-11)/3-sqrt(-374)/34</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-12/25</code></td></tr>
+<tr><td>3</td><td><code>2762/125</code></td></tr>
+<tr><td>4</td><td><code>-17736/625</code></td></tr>
+<tr><td>5</td><td><code>-67648/125</code></td></tr>
+<tr><td>6</td><td><code>6553872/15625</code></td></tr>
+<tr><td>7</td><td><code>-1956484432/78125</code></td></tr>
+<tr><td>8</td><td><code>35892969216/390625</code></td></tr>
+<tr><td>9</td><td><code>-529784610176/390625</code></td></tr>
+<tr><td>10</td><td><code>172867679770368/9765625</code></td></tr>
+<tr><td>11</td><td><code>-1944481090613248/48828125</code></td></tr>
+<tr><td>12</td><td><code>-247650974975517696/244140625</code></td></tr>
+<tr><td>13</td><td><code>-19483263579514262528/244140625</code></td></tr>
+<tr><td>14</td><td><code>-644862616376381534208/6103515625</code></td></tr>
+<tr><td>15</td><td><code>379446917907460936214528/30517578125</code></td></tr>
+<tr><td>16</td><td><code>7599424077119508565426176/152587890625</code></td></tr>
+<tr><td>17</td><td><code>-1216341642964494461558325248/152587890625</code></td></tr>
+<tr><td>18</td><td><code>60363507487639537988740251648/3814697265625</code></td></tr>
+<tr><td>19</td><td><code>23640982716039727987858453102592/19073486328125</code></td></tr>
+</table></details>
+<details><summary>46a — c₀ through c₁₉</summary><p>τ = <code>(35*sqrt(-489)+4*sqrt(-22494))/489</code><br>Θ/(πΩ²) = <code>7855*sqrt(46)/69</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>27824049/123402050</code></td></tr>
+<tr><td>3</td><td><code>-114816966372/484661551375</code></td></tr>
+<tr><td>4</td><td><code>-784666539922896/3807016486050625</code></td></tr>
+<tr><td>5</td><td><code>-3694325348311426944/5980822899585531875</code></td></tr>
+<tr><td>6</td><td><code>939622156860406531404672/234896819381221764390625</code></td></tr>
+<tr><td>7</td><td><code>-4830778556884582083419085504/369022903247899391857671875</code></td></tr>
+<tr><td>8</td><td><code>442878350866900739731453719595104/14493374525061248615210062890625</code></td></tr>
+<tr><td>9</td><td><code>1152149973043154265803444900728028544/22769091378871221574495008801171875</code></td></tr>
+<tr><td>10</td><td><code>45677434796653716953682008404861805361408/178851212781033445467658294133205078125</code></td></tr>
+<tr><td>11</td><td><code>1568557138407604596175336857290285091277553664/1404876276395017714148455900416325888671875</code></td></tr>
+<tr><td>12</td><td><code>-256381932804069041715125435173646448132348566658048/55176515755414320723180605488851199277587890625</code></td></tr>
+<tr><td>13</td><td><code>373703822429471056724674407542407764681878477412375552/86682306251755897856116731222985234065090576171875</code></td></tr>
+<tr><td>14</td><td><code>-10511414261024643796837357378784196934435796846728740060672/680889515607542577659796923756549013581286475830078125</code></td></tr>
+<tr><td>15</td><td><code>54921707794957786657826390226358160911624570854618381518880768/1069677429019449389503540967221538500336201053529052734375</code></td></tr>
+<tr><td>16</td><td><code>-132262608101763924436855223912781353658827416596365157672140239405056/42011581024738874772751571487625924600704296377353546142578125</code></td></tr>
+<tr><td>17</td><td><code>4410629539417227119538770503047343168198365474691763154083087869939286016/330000968949323861339963594035301637738532248044112104949951171875</code></td></tr>
+<tr><td>18</td><td><code>1292537265042851242312957641862861353099787538986727159958040229556643052519424/12960788055484694654127070155736471822180854041932502921909332275390625</code></td></tr>
+<tr><td>19</td><td><code>339823158532668345626737691645997453461600561914411011941216266175309836917276672/4072279607033291060326725442932399446529224339975192418063912200927734375</code></td></tr>
+</table></details>
+<details><summary>26a — c₀ through c₁₉</summary><p>τ = <code>(52*sqrt(5)+14*sqrt(130)+7*sqrt(-55)+sqrt(-1430))/115</code><br>Θ/(πΩ²) = <code>-21*(988-33*sqrt(26)-156*sqrt(-11)-19*sqrt(-286))/2990</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-16/147</code></td></tr>
+<tr><td>3</td><td><code>274/3087</code></td></tr>
+<tr><td>4</td><td><code>-2488/9261</code></td></tr>
+<tr><td>5</td><td><code>352768/1361367</code></td></tr>
+<tr><td>6</td><td><code>5961776/28588707</code></td></tr>
+<tr><td>7</td><td><code>-56839952/85766121</code></td></tr>
+<tr><td>8</td><td><code>17097337856/12607619787</code></td></tr>
+<tr><td>9</td><td><code>173786724736/37822859361</code></td></tr>
+<tr><td>10</td><td><code>643293880064/5559960326067</code></td></tr>
+<tr><td>11</td><td><code>695648599343104/116759166847407</code></td></tr>
+<tr><td>12</td><td><code>4554190357916672/350277500542221</code></td></tr>
+<tr><td>13</td><td><code>-895096626920477696/7355827511386641</code></td></tr>
+<tr><td>14</td><td><code>-30449668697485852672/154472377739119461</code></td></tr>
+<tr><td>15</td><td><code>-1264784058725642504192/3243919932521508681</code></td></tr>
+<tr><td>16</td><td><code>-688629336239437298827264/476856230080661776107</code></td></tr>
+<tr><td>17</td><td><code>13736829383389038096941056/1430568690241985328321</code></td></tr>
+<tr><td>18</td><td><code>1111163451806065018446086144/210293597465571843263187</code></td></tr>
+<tr><td>19</td><td><code>1299564364058220363078187024384/4416165546777008708526927</code></td></tr>
+</table></details>
+<details><summary>26b — c₀ through c₁₉</summary><p>τ = <code>(52*sqrt(5)+14*sqrt(130)+7*sqrt(-55)+sqrt(-1430))/115</code><br>Θ/(πΩ²) = <code>(988-33*sqrt(26)-156*sqrt(-11)-19*sqrt(-286))/2990</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>40</code></td></tr>
+<tr><td>3</td><td><code>-734</code></td></tr>
+<tr><td>4</td><td><code>-11240</code></td></tr>
+<tr><td>5</td><td><code>1308544</code></td></tr>
+<tr><td>6</td><td><code>5134480</code></td></tr>
+<tr><td>7</td><td><code>151251184</code></td></tr>
+<tr><td>8</td><td><code>-3164633600</code></td></tr>
+<tr><td>9</td><td><code>269353584256</code></td></tr>
+<tr><td>10</td><td><code>-94440048876800</code></td></tr>
+<tr><td>11</td><td><code>-575240941789184</code></td></tr>
+<tr><td>12</td><td><code>-143286385527464960</code></td></tr>
+<tr><td>13</td><td><code>-3806855421335622656</code></td></tr>
+<tr><td>14</td><td><code>-66278658347643822080</code></td></tr>
+<tr><td>15</td><td><code>-4913548960172738902016</code></td></tr>
+<tr><td>16</td><td><code>1082097801745767508049920</code></td></tr>
+<tr><td>17</td><td><code>6012252536391379209158656</code></td></tr>
+<tr><td>18</td><td><code>-11669102040229164764237987840</code></td></tr>
+<tr><td>19</td><td><code>423653967811800078402032828416</code></td></tr>
+</table></details>
+<details><summary>38a — c₀ through c₁₉</summary><p>τ = <code>(-2*sqrt(38)+sqrt(-209))/19</code><br>Θ/(πΩ²) = <code>-9*(4+sqrt(-22))/19</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-64/27</code></td></tr>
+<tr><td>3</td><td><code>-62/27</code></td></tr>
+<tr><td>4</td><td><code>-19672/2187</code></td></tr>
+<tr><td>5</td><td><code>41984/6561</code></td></tr>
+<tr><td>6</td><td><code>-38071696/177147</code></td></tr>
+<tr><td>7</td><td><code>182113456/531441</code></td></tr>
+<tr><td>8</td><td><code>9047969792/14348907</code></td></tr>
+<tr><td>9</td><td><code>-113599846016/4782969</code></td></tr>
+<tr><td>10</td><td><code>74847195289856/1162261467</code></td></tr>
+<tr><td>11</td><td><code>-3762087189938176/3486784401</code></td></tr>
+<tr><td>12</td><td><code>-368448954318810112/94143178827</code></td></tr>
+<tr><td>13</td><td><code>-8181880194120528896/282429536481</code></td></tr>
+<tr><td>14</td><td><code>-13241491981636796416/7625597484987</code></td></tr>
+<tr><td>15</td><td><code>25396132445232609708032/7625597484987</code></td></tr>
+<tr><td>16</td><td><code>25447564409639107413573632/617673396283947</code></td></tr>
+<tr><td>17</td><td><code>-255544854986513393976868864/1853020188851841</code></td></tr>
+<tr><td>18</td><td><code>473781447459557337669464293376/50031545098999707</code></td></tr>
+<tr><td>19</td><td><code>6566983810793851833563569782784/150094635296999121</code></td></tr>
+</table></details>
+<details><summary>38b — c₀ through c₁₉</summary><p>τ = <code>(-2*sqrt(38)+sqrt(-209))/19</code><br>Θ/(πΩ²) = <code>13*(4+sqrt(-22))/19</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-16/169</code></td></tr>
+<tr><td>3</td><td><code>-878/2197</code></td></tr>
+<tr><td>4</td><td><code>7688/28561</code></td></tr>
+<tr><td>5</td><td><code>-2699648/371293</code></td></tr>
+<tr><td>6</td><td><code>25568336/4826809</code></td></tr>
+<tr><td>7</td><td><code>-228891152/62748517</code></td></tr>
+<tr><td>8</td><td><code>-130076873728/815730721</code></td></tr>
+<tr><td>9</td><td><code>5350954834048/10604499373</code></td></tr>
+<tr><td>10</td><td><code>-58776407616256/137858491849</code></td></tr>
+<tr><td>11</td><td><code>-2486430250016768/1792160394037</code></td></tr>
+<tr><td>12</td><td><code>-4666283369709356032/23298085122481</code></td></tr>
+<tr><td>13</td><td><code>13320459741343304704/23298085122481</code></td></tr>
+<tr><td>14</td><td><code>-3032309207116810829824/3937376385699289</code></td></tr>
+<tr><td>15</td><td><code>65701101704442751461376/3937376385699289</code></td></tr>
+<tr><td>16</td><td><code>58063441361940904010350592/665416609183179841</code></td></tr>
+<tr><td>17</td><td><code>-8389254246294092101309693952/8650415919381337933</code></td></tr>
+<tr><td>18</td><td><code>-552148793164176353060550148096/112455406951957393129</code></td></tr>
+<tr><td>19</td><td><code>62735116318465026330446882209792/1461920290375446110677</code></td></tr>
+</table></details>
+<details><summary>58a — c₀ through c₁₉</summary><p>τ = <code>(-3*sqrt(58)+sqrt(-319))/29</code><br>Θ/(πΩ²) = <code>-5*(6+sqrt(-22))/29</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>-4/5</code></td></tr>
+<tr><td>3</td><td><code>314/125</code></td></tr>
+<tr><td>4</td><td><code>31192/625</code></td></tr>
+<tr><td>5</td><td><code>-1977728/625</code></td></tr>
+<tr><td>6</td><td><code>4428752/3125</code></td></tr>
+<tr><td>7</td><td><code>-4829523664/78125</code></td></tr>
+<tr><td>8</td><td><code>346814303488/390625</code></td></tr>
+<tr><td>9</td><td><code>-300766884736/78125</code></td></tr>
+<tr><td>10</td><td><code>-38348182340864/390625</code></td></tr>
+<tr><td>11</td><td><code>-6801387461287936/48828125</code></td></tr>
+<tr><td>12</td><td><code>-6368944313448915968/244140625</code></td></tr>
+<tr><td>13</td><td><code>-253011158115384660992/244140625</code></td></tr>
+<tr><td>14</td><td><code>5961038888167461367808/1220703125</code></td></tr>
+<tr><td>15</td><td><code>23589809944455975265396736/30517578125</code></td></tr>
+<tr><td>16</td><td><code>365135918752925243199029248/152587890625</code></td></tr>
+<tr><td>17</td><td><code>4623285034520021238369746944/152587890625</code></td></tr>
+<tr><td>18</td><td><code>-1804346373610853177832359919616/762939453125</code></td></tr>
+<tr><td>19</td><td><code>-35254756724197283893941957492736/19073486328125</code></td></tr>
+</table></details>
+<details><summary>58b — c₀ through c₁₉</summary><p>τ = <code>(-3*sqrt(58)+sqrt(-319))/29</code><br>Θ/(πΩ²) = <code>3*(6+sqrt(-22))/29</code></p><table><tr><th>n</th><th>cₙ</th></tr>
+<tr><td>0</td><td><code>1</code></td></tr>
+<tr><td>1</td><td><code>1</code></td></tr>
+<tr><td>2</td><td><code>140/9</code></td></tr>
+<tr><td>3</td><td><code>262/3</code></td></tr>
+<tr><td>4</td><td><code>-39592/81</code></td></tr>
+<tr><td>5</td><td><code>420224/81</code></td></tr>
+<tr><td>6</td><td><code>-303950320/729</code></td></tr>
+<tr><td>7</td><td><code>-519149456/729</code></td></tr>
+<tr><td>8</td><td><code>482738922752/6561</code></td></tr>
+<tr><td>9</td><td><code>475051014784/729</code></td></tr>
+<tr><td>10</td><td><code>1429957306131200/59049</code></td></tr>
+<tr><td>11</td><td><code>5467784308760576/59049</code></td></tr>
+<tr><td>12</td><td><code>18433309687885503488/531441</code></td></tr>
+<tr><td>13</td><td><code>422815682063031921664/531441</code></td></tr>
+<tr><td>14</td><td><code>-33489133317188465889280/4782969</code></td></tr>
+<tr><td>15</td><td><code>-2063463017938102093637632/1594323</code></td></tr>
+<tr><td>16</td><td><code>670068453560967521041743872/43046721</code></td></tr>
+<tr><td>17</td><td><code>147020457335422648774010863616/43046721</code></td></tr>
+<tr><td>18</td><td><code>-41119409848227681277846268477440/387420489</code></td></tr>
+<tr><td>19</td><td><code>-808116333331724112619144964931584/387420489</code></td></tr>
+</table></details>
+<footer>Original external inputs remain unchanged. This package retains the computation sources, exact inputs, fresh results and references needed for the supplied draft. No full CM-image reproduction was performed.</footer></body></html>

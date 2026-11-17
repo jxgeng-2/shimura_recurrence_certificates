@@ -1,0 +1,25 @@
+14a: cutoff=144; max c error=3.661E-54; alpha error=2.553E-58
+14a: cutoff=196; max c error=8.986E-65; alpha error=1.372E-68
+15a: cutoff=144; max c error=1.974E-55; alpha error=3.986E-58
+15a: cutoff=196; max c error=5.005E-66; alpha error=3.321E-69
+21a: cutoff=144; max c error=2.340E-57; alpha error=7.515E-57
+21a: cutoff=196; max c error=4.126E-68; alpha error=2.540E-67
+26a: cutoff=144; max c error=4.081E-54; alpha error=1.311E-57
+26a: cutoff=196; max c error=4.627E-64; alpha error=7.406E-68
+26b: cutoff=144; max c error=1.433E-47; alpha error=6.243E-59
+26b: cutoff=196; max c error=1.207E-57; alpha error=3.527E-69
+33a: cutoff=144; max c error=1.051E-48; alpha error=2.428E-56
+33a: cutoff=196; max c error=9.095E-59; alpha error=3.736E-67
+34a: cutoff=144; max c error=5.215E-51; alpha error=2.731E-58
+34a: cutoff=196; max c error=4.299E-61; alpha error=1.467E-68
+38a: cutoff=144; max c error=3.053E-52; alpha error=4.648E-58
+38a: cutoff=196; max c error=1.663E-62; alpha error=2.597E-68
+38b: cutoff=144; max c error=7.962E-53; alpha error=6.714E-58
+38b: cutoff=196; max c error=5.038E-63; alpha error=3.707E-68
+46a: cutoff=144; max c error=3.556E-54; alpha error=2.290E-55
+46a: cutoff=196; max c error=4.290E-64; alpha error=6.170E-66
+58a: cutoff=144; max c error=3.605E-49; alpha error=2.090E-58
+58a: cutoff=196; max c error=1.125E-59; alpha error=1.153E-68
+58b: cutoff=144; max c error=6.454E-50; alpha error=1.254E-58
+58b: cutoff=196; max c error=7.781E-61; alpha error=6.741E-69
+PASS: numerical comparisons for all twelve forms. These are not interval-certified bounds.

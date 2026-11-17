@@ -1,0 +1,23 @@
+{
+  "source": "User-supplied draft, Section 5, Table 4, pages 18-19",
+  "polynomial_coefficient_order": "ascending: constant term first",
+  "provenance": "The four polynomials are transcribed manuscript claims. The supplied source bundle contains regeneration code and a whole-table fingerprint, not saved selected-row numerical outputs. This data file is not independent evidence for analytic CM-image identification.",
+  "claims": [
+    {
+      "E": "14a1", "N": 14, "D": -163, "h": 1, "operator": "w2",
+      "coefficients": ["144420233907863660158612249", "150338180418782421668964075"]
+    },
+    {
+      "E": "15a1", "N": 15, "D": -127, "h": 5, "operator": "w3",
+      "coefficients": ["563606776197313", "-590593001260921", "305940630600433", "-84764507545775", "11149788901250", "5166015625"]
+    },
+    {
+      "E": "21a1", "N": 21, "D": -151, "h": 7, "operator": "w21",
+      "coefficients": ["-547632457037301206860395490991", "-73188878249079458018374864916", "286936294039354026127614582336", "16409225146180276109773804115", "-63423266000975836342858965403", "16231851119187446507209327701", "-1288929647131995453377125424", "216660141932532715724206159"]
+    },
+    {
+      "E": "58b1", "N": 58, "D": -131, "h": 5, "operator": "w29",
+      "coefficients": ["100193632473834213093593856926954261193680336428544", "187382447862624939407506533930782373495848110788672", "111856988467274719936332460083978821909402006860640", "8724618145938685405280290103977069330079425081308", "11957708847918103110089622530984457502879397061716", "1820977340241273730680440235575692717480377066779"]
+    }
+  ]
+}

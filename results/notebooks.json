@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "kind": "exact algebra conditional on stated initial coefficients and geometry",
+  "notebooks": [
+    {
+      "notebook": "shimura_parameter_recovery.ipynb",
+      "passed": true,
+      "code_cells": 34,
+      "seconds": 4.421,
+      "evidence": "Fresh Sage kernel; every code cell including answer comparisons executed."
+    },
+    {
+      "notebook": "shimura_schwarzian_14_15_21.ipynb",
+      "passed": true,
+      "code_cells": 13,
+      "seconds": 2.872,
+      "evidence": "Fresh Sage kernel; every code cell including answer comparisons executed."
+    }
+  ]
+}
