@@ -1,8 +1,6 @@
 __pycache__/
-*.py[cod]
+*.pyc
 *.sage.py
 .ipynb_checkpoints/
-.venv/
-venv/
-.DS_Store
-Thumbs.db
+Section_5 Compute Phi and CM Images/results/
+Section_5 Compute Phi and CM Images/Full CM Image Results.zip

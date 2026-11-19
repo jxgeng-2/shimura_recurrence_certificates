@@ -1,131 +1,151 @@
-# Computational certificate for the recurrence-formula draft
+# Computational certificates
 
-This package collects the computations used in the supplied draft,
-[included here](inputs/draft.pdf). It covers all twelve eigenforms, the
-parameter recovery in Section 4, all Table 3 families, the CM expansion
-coefficients and scales, and every Appendix C coordinate. Section 5's
-twelve-under-200 source is included and has been run only in sanity mode,
-as requested.
+For **Recurrence formulas for Taylor expansions at CM points on genus-one and genus-two Shimura curves**, by Jingxuan Geng. Section, appendix and table numbers follow
+`recurrence_formulas_genus_one_refined_edited.pdf` (the version checked on
+2026-11-19). Appendix A contains both initial values and complete CM expansions; Appendix B contains
+certification of CM coordinates.
 
-Start with [the execution report](REPORT.html),
-[the claim-to-certificate map](docs/coverage.md), or
-[the first 20 coefficients of every form](results/coefficients_first20.md).
-The machine-readable overview is [results/summary.json](results/summary.json).
-The complete execution log is [results/execution.log](results/execution.log);
-[data/source_manifest.json](data/source_manifest.json) records the supplied
-file hashes and the small source compatibility adaptations.
+| Requested computation | Open this file |
+|---|---|
+| 1. All Table 3 families | [Section_3_3 Verify Families of R(u) in Table 3.ipynb](<Section_3_3 Verify Families of R(u) in Table 3.ipynb>) |
+| 2. Sections 4.1–4.2: Tu's Schwarzian formulas and recovery from coefficients and the curve | [Sections_4_1_and_4_2 Recover R(u) and Recurrence Parameters.ipynb](<Sections_4_1_and_4_2 Recover R(u) and Recurrence Parameters.ipynb>) |
+| 3. Section 4.3: integrality and every row of Table 4 | [Section_4_3 Verify Integrality of c_n and Table 4.ipynb](<Section_4_3 Verify Integrality of c_n and Table 4.ipynb>) |
+| 4. Section 5: the map Phi and CM divisor images | [HTML table](<Section_5 Compute Phi and CM Images/Section_5 Table of All CM Images.html>); [Sage computation](<Section_5 Compute Phi and CM Images/Compute Phi and CM Images.sage>) |
+| 5. Appendix A: initial coefficients by Nelson's method | [Appendix_A Initial Values by Nelson Method/Appendix_A Compute Initial Coefficients by Nelson Method.ipynb](<Appendix_A Initial Values by Nelson Method/Appendix_A Compute Initial Coefficients by Nelson Method.ipynb>) |
+| 6. Appendix A: Tau, Theta and the first 20 coefficients for every form | [Appendix_A Compute Tau Theta and First 20 Coefficients.ipynb](<Appendix_A Compute Tau Theta and First 20 Coefficients.ipynb>) |
 
-## Reproduce the package
+## Run the notebooks
 
-From this directory, with SageMath available:
+The notebooks were executed using SageMath 9.5 on Ubuntu 22.04 under WSL.
+If Sage is already installed, keep that installation. For a new Ubuntu 22.04
+installation, the relevant packages are:
 
-```console
-sage -python run_all.py
+```sh
+sudo apt-get update
+sudo apt-get install sagemath sagemath-database-elliptic-curves jupyter-notebook
 ```
 
-This executes the exact certificates, both notebooks from fresh Sage kernels,
-the Nelson numerical comparisons at both cutoffs, the integration checks,
-and the small CM sanity checks. It never invokes the full under-200 batch.
-The numerical comparison stage took about six minutes in the recorded run;
-runtime depends on the machine.
+In an **Ubuntu/WSL terminal**, enter the package directory and register the
+Sage notebook kernel once. This also repairs an older kernel entry that
+incorrectly launches a command named `python`:
 
-To check the saved report records and their integrity without rerunning the
-computations:
-
-```console
-sage -python run_all.py --check-recorded
+```sh
+cd /mnt/c/Users/Jingx/OneDrive/Documents/shimura_recurrence_certificates
+/usr/bin/sage -python -c 'from sage.repl.ipython_kernel.install import SageKernelSpec; import site; SageKernelSpec.update(prefix=site.USER_BASE)'
+/usr/bin/sage -n jupyter
 ```
 
-The package was executed with SageMath 9.5 on Ubuntu. Use an installed Sage
-environment with NumPy, SymPy, mpmath, nbformat, nbclient, and jupyter_client.
-The notebook runner creates its own temporary kernel registration bound to
-the Sage Python that launches it. No network access is needed for the
-computations. Do not use Python's `-O` option: some supplied checks use
-assertions.
+Open a notebook, select the **SageMath** kernel, then choose **Kernel → Restart
+& Run All**. In the checked run, the first three notebooks took seconds,
+the Appendix A expansion notebook took about 6 minutes, and the Nelson notebook took about 12 minutes.
+The explicit `/usr/bin/sage` selects Ubuntu's installed
+Sage instead of a different source checkout earlier on PATH. On another
+installation, substitute the path to its working Sage executable. The clean
+installation recipe itself has not been tested in a newly installed system.
 
-## Numerical agreement obtained
+In the Appendix A expansion notebook, `first_coefficients("46a", N)` returns the exact normalized
+coefficients `c_0,...,c_(N-1)`. They occur in
+`f(z)=(1-w)^2 sum(c_n*(Theta*w)^n/n!)`. All twelve lists with `N=20` are displayed.
+The notebook also checks the explicit maximal-order bases defining Gamma and
+computes tau from the CM fixed-point equation. No Magma run is needed for this.
 
-The recorded run used 90 decimal digits, an 80-digit target for the weight
-function, and squared lattice cutoffs 144 and 196. At the final cutoff 196,
-the largest observed differences over all twelve forms were:
+## Section 5: view or reproduce the table
 
-| Comparison | Observed maximum, rounded upward |
-| --- | ---: |
-| 43 initial coefficients versus the stated rational values | `1.21e-57` |
-| Theta versus the stated period times algebraic value | `4.10e-68` |
-| Theta/(pi Omega_D^2) versus the stated algebraic value | `6.17e-66` |
+Open [Section_5 Table of All CM Images.html](<Section_5 Compute Phi and CM Images/Section_5 Table of All CM Images.html>)
+in a browser. This self-contained file works offline and prints directly. Its
+five columns list 720 rows: rational values, minimal polynomials, points at
+infinity and 2-torsion annotations. Repeated entries are listed once.
 
-All requested `1e-40` comparisons pass. The initial-coefficient differences
-are also below `1e-45`, and the normalized-scale differences are below
-`1e-50`. The eta/Gamma period comparison has largest observed difference
-`6.488142e-89`. Full values and the changes between cutoffs are recorded in
-[results/numerical.json](results/numerical.json).
+From the package directory, in an Ubuntu/WSL terminal:
 
-These are observed numerical differences, rather than rigorous enclosures
-of the infinite analytic sums. Exact algebraic checks and numerical evidence
-are distinguished in [the numerical scope note](docs/numerical_scope.md).
-The recurrence results retain the draft's assumptions on the initial
-coefficients and algebraic scale.
-
-## Compute any requested number of coefficients
-
-The normalization is exactly the one in Appendix B:
-
-\[
-f_N(z)=(1-w_N)^2\sum_{n\ge0}\frac{c_{N,n}}{n!}(\Theta_Nw_N)^n,
-\qquad w_N=\frac{z-\tau_N}{z-\overline{\tau_N}}.
-\]
-
-From a Python session launched in the package directory:
-
-```python
-from certificates.coefficients import first_coefficients, appendix_expansion, w_coefficients
-
-c = first_coefficients("46a", 20)       # exact Fractions c_0,...,c_19
-expansion = appendix_expansion("46a", 20)  # tau, scale, c_n and c_n/n!
-w_terms = w_coefficients("46a", 20)     # includes the (1-w)^2 factor
+```sh
+cd "Section_5 Compute Phi and CM Images"
+/usr/bin/sage "Compute Phi and CM Images.sage" --sanity
 ```
 
-Replace `20` by the desired count. Accepted labels are
-`14a, 15a, 21a, 26a, 26b, 33a, 34a, 38a, 38b, 46a, 58a, 58b`.
-The displayed lists contain 20 coefficients, indexed 0 through 19. The
-saved verification computed 32 terms per form and checked both undivided
-equations and the first integral through 30 residual coefficients.
-See [the coefficient documentation](docs/coefficients.md).
+This runs small checks for all twelve forms and the three Table 5 polynomials:
+`14a1, D=-163, w2`; `15a1, D=-127, w3`; and **`58a1, D=-131, w29`**.
+It does not recompute their analytic CM images. The last polynomial is
+`83521*x^5 - 156927*x^4 + 139246*x^3 - 185426*x^2 + 211985*x - 88687`.
 
-## Individual computations
+To compute the entire table from the supplied inputs:
 
-All commands below are run from the package directory:
+```sh
+/usr/bin/sage "Compute Phi and CM Images.sage" --full
+```
 
-| Computation | Command | Main output |
-| --- | --- | --- |
-| General Schwarzian and recurrence identities | `sage -python certificates/general_identities.py` | `results/general_identities.json` |
-| All H functions and Table 3 families | `sage -python certificates/families.py` | `data/families_certificate.json` |
-| All Appendix C coordinates | `sage -python certificates/appendix_c.py` | `results/appendix_c.json` |
-| Fresh execution of Section 4 notebooks | `sage -python certificates/notebooks.py` | executed notebooks and `results/recovered_parameters.json` |
-| Recurrences and first 20 coefficients | `sage -python certificates/coefficients.py --count 20 --verify-count 32` | `results/coefficients.json` |
-| Exact quaternion and CM input validation | `sage -python certificates/nelson_inputs.py` | `results/nelson_inputs.json` |
-| Nelson values and cutoff comparison | `sage -python certificates/numerical.py` | `results/numerical.json` |
-| Cross-certificate consistency, after notebooks and Appendix C | `sage -python certificates/integration.py` | `results/integration.json` |
-| Four displayed CM-image polynomial sanity checks | `sage -python certificates/cm_claims.py` | `results/cm_claims.json` |
-| Twelve-under-200 setup sanity only | `sage certificates/cm_sanity.sage` | `results/cm_sanity.json` |
+This computes and validates all twelve forms, saves intermediate results in
+`results/`, and writes `Section_5 Table of All CM Images.html`. The full numerical
+calculation is expensive; compatible checkpoints let an interrupted run resume.
+No downloaded results archive or Magma installation is needed.
 
-## Scope and provenance
+If `results/` already contains a completed run, rebuild the HTML without
+repeating the integrations and recognition:
 
-`inputs/` contains snapshots of the supplied draft and notebooks. The
-executed notebooks are separate files in `results/`. The Nelson evaluator
-is accompanied by exact-input and numerical-comparison wrappers. Published
-coordinate values and theorem inputs are recorded in
-[data/appendix_c_sources.json](data/appendix_c_sources.json).
+```sh
+/usr/bin/sage "Compute Phi and CM Images.sage" --table
+```
 
-The under-200 directory retains the supplied reproduction code and exact
-CM input data. Two API compatibility adaptations make its sanity check run
-under Sage 9.5: the fundamental-discriminant predicate is expressed as
-`fundamental_discriminant(D) == D`, and quaternion inversion uses `~q`.
-The full batch, analytic CM-image integration, and image recognition were
-not rerun. The four displayed Table 4 polynomials have independent exact
-sanity checks; see [their scope](docs/cm_claims.md).
+This rechecks the saved results, confirms all three current Table 5 examples,
+and writes the same table. Its columns omit orientation labels; the code checks
+that the repeated polynomials agree before combining them.
 
-The original external files and the draft text were not edited. This package
-contains the directly relevant source, data, documentation, and execution
-records; previous exploratory work is not required.
+For a single target, start Sage in this folder and use:
+
+```sage
+load("Compute Phi and CM Images.sage")
+results = run_all(labels=("58a1",))
+point = cm_divisor_point("58a1", -131, "w29")
+point["point"]
+```
+
+The complete run on 2026-11-19, using SageMath 9.5, covers **5,616 divisor images**
+for every admissible negative fundamental discriminant with `|D| < 200`, all
+twelve forms, ideal classes and three Atkin–Lehner operators. All coverage and
+validation checks passed, with no unresolved entries. The minimum observed
+agreement in both coordinates is 169 bits, using
+`|z_num-z_exact| / max(1, |z_num|, |z_exact|)` for finite points. This is a numerical
+agreement measure. The current `58a1` example was checked against that saved run.
+
+For distribution, keep the HTML, the six `.sage` files, the fundamental-domain
+JSON input, and `Generate CM Embedding Data.m`. The last file records optional
+regeneration of the supplied CM inputs in Magma; it is not needed for the Sage
+commands. These nine files give the table and its reproducible computation.
+The large `Full CM Image Results.zip`, unpacked `results/`, logs and generated
+`.sage.py` files are local working material, excluded from the sharing ZIP and
+ignored by Git. Retain the large archive separately if you want the original
+checkpoints and number-field maps; readers do not need it to view or recompute
+the table.
+
+## Meaning of the checks
+
+The family and recovery notebooks identify their geometric and initial-value
+assumptions. The integrality notebook verifies the polynomial-system hypotheses,
+including that `Q(0)` is a unit, and gives the argument for **all** coefficients;
+its conclusion is not inferred from a finite coefficient sample. Minimal prime
+sets are checked using the reduced denominators of `c_2` and `c_3`.
+
+Nelson evaluations use cutoffs 144 and 196 and report observed agreement with
+the stated values. They do not provide interval bounds for the omitted
+infinite lattice tail or accumulated rounding. Recurrence coefficients are
+exact consequences of the stated input data. Section 5's analytic identification
+remains numerical; its saved full results include two-truncation comparisons
+and exact algebraic checks.
+
+## Reuse and AI assistance
+
+Copyright (c) 2026 Jingxuan Geng. The code and accompanying documentation are
+licensed under **GPL-3.0-only**; see [LICENSE](<LICENSE>). Cited publications and
+external software retain their own licenses. Please cite the paper and the
+software commit or release used. SageMath supplies the exact algebra,
+elliptic-curve database, power series and multiprecision arithmetic; the Nelson
+notebook identifies the source of its numerical formula.
+
+The author reports using **ChatGPT and Claude throughout work on the paper**.
+Codex assisted with implementation, review, simplification, testing and
+documentation of these certificates.
+
+To share this version, commit the notebooks, the nine Section 5 files listed
+above, this README, LICENSE and `.gitignore`. Saved notebook outputs belong with
+the code. The sharing ZIP omits the large results archive and generated working
+files.
